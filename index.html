@@ -53,6 +53,8 @@
             background-color: black;
             width:50%;
             opacity:0.8;
+            display:flex;
+            flex-direction: column;
         }
 
         .ticket-graphic{
@@ -64,8 +66,26 @@
         }
 
         .ticket-graphic img{
-            width:100%;
+            width:150%;
         }
+
+        .event-name{
+            background-color: brown;
+            opacity:0.5;
+            height:40%;
+            text-align:right;
+            padding: 5% 10% 0 0;
+            border: 5px solid red;
+
+        }
+
+        .event-details{
+            background-color: coral;
+            opacity:0.5;
+            height:60%;
+        }
+
+
         </style>
     </head>
     <body> 
@@ -73,7 +93,10 @@
             <div class="ticket-wrapper">
                 <div class="ticket-subwrapper1">
                     <div class="ticket-graphic"><img src="graphic.png"></div>
-                    <div class="ticket-data">nbvjhvgjvvh<br/>hccchchc</div>
+                    <div class="ticket-data">
+                        <div class="event-name"><strong>Anubhav Singh Bassi</strong> and <br/><strong>Paradigm Shift</strong></div>
+                        <div class="event-details"></div>
+                    </div>
                 </div>
                 <div class="ticket-subwrapper2"></div>
             </div>
