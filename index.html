@@ -1,120 +1,260 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Prof Show</title>
-        
-        <style>
+<!DOCTYPE html>
+<html lang="en">
 
-            @font-face {
-                font-family: simplifica;
-                src: url(./assets/font/SIMPLIFICA.ttf);
-            }
-        *{
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof-Show Ticket</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: simplifica;
+            font-family: Barlow, sans-serif;
         }
 
-        body{
-            width:100vw;
+        body {
+            background-color: paleturquoise;
         }
 
-        .wrapper{
-            width:100%;
-            height:100%;
-            background-color: yellow;
+        #pageWrapper {
+            width: max-content;
+            height: max-content;
             display: flex;
-            align-items: center;
+            background-color: rgb(216, 111, 146);
+            min-width: 100vw;
+            min-height: 100vh;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
         }
 
-        .ticket-wrapper{
-            width:70vw;
-            height:30vw; /*golden ratio*/
-            background-color: aqua;
-            display:flex;
+        #innerWrapper {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            /* min-height: 80vh; */
+            width: auto;
+            min-width: 350px;
+            background-color: #333333;
+            padding: 20px;
             align-items: center;
             justify-content: flex-start;
+            box-shadow: -1px 0px 33px -8px rgba(0, 0, 0, 0.75);
         }
 
-        .ticket-subwrapper1{
-            width:75%;
-            height:100%;
-            background-color: bisque;
-            opacity: 0.7;
-            display:flex;
+        #logo {
+            display: flex;
+            flex-direction: row;
             justify-content: space-between;
-
+            align-items: flex-start;
+            margin-bottom: 8px;
+            width: 100%;
+            height: 30px;
         }
 
-        .ticket-subwrapper2{
-            width:25%;
-            height:100%;
-            background-color: bisque;
-            opacity: 1;
-            display:flex;
+        #oasisLogo {
+            width: 50%;
+            height: 100%;
+            /* background-color: rosybrown; */
+            background-image: url('./assets/images/oasisLogo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left top;
         }
 
-        .ticket-data{
-            background-color: black;
-            width:50%;
-            opacity:0.8;
-            display:flex;
+        #sponsorLogo {
+            text-align: right;
+            width: 50%;
+            height: 100%;
+            /* background-color: rosybrown; */
+            background-image: url('./assets/images/sponsorLogo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right top;
+        }
+
+        #mainTitle {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 7px;
+            margin-bottom: 8px;
+        }
+
+        #picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-image: url('./assets/images/picture.jpg');
+            background-color: rosybrown;
+            background-size: 100% auto;
+            box-shadow: -1px 0px 33px -3px rgba(0, 0, 0, 0.75);
+        }
+
+        .heading {
+            margin-top: 5px;
+            font-weight: 800;
+            font-size: 1.5em;
+            font-family: Barlow;
+            /* color: rgb(255, 245, 240); */
+            color: lightyellow;
+        }
+
+        .subHeading {
+            font-size: 0.9em;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-top: -3px;
+            /* color: rgb(255, 246, 240); */
+            color: lightyellow;
+        }
+
+        #otherDetails {
+            margin-top: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            /* background-color: lightslategray; */
+            color: white;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 10px 0 10px;
+            width: 100%;
+        }
+
+        #date,
+        #time,
+        #venue {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 0px 4px 0 4px;
+        }
+
+        .topicHeading {
+            font-size: 1em;
+            padding-bottom: 2px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .topicData {
+            font-size: 0.8em;
+            color: white;
+            opacity: 0.8;
+        }
+
+        #ticketDetails {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 7px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #qrImage {
+            width: 30%;
+            margin-bottom: 15px;
+        }
+
+        .flexRowCenter {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        #otherStuff {
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             flex-direction: column;
         }
 
-        .ticket-graphic{
-            width:50%;
-            background-color: antiquewhite;
-            justify-content: flex-start;
-            align-items: flex-end;
-            display:flex;
+        .info {
+            color: lemonchiffon;
+            font-size: 0.9em;
         }
 
-        .ticket-graphic img{
-            width:150%;
+        .appDownloadButtons {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            height: 30px;
         }
 
-        .event-name{
-            background-color: darkgrey;
-            opacity:0.5;
-            height:40%;
-            text-align:right;
-            padding: 2% 5% 0 0;
-            border: 5px solid red;
-            letter-spacing: 0.3em ;
-            white-space: pre-wrap; /* Chrome */
-            word-wrap:break-word;
-
+        .appDownloadButtons>img {
+            height:100%;
+            border-radius: 5px;
         }
+    </style>
+</head>
 
-        .event-details{
-            background-color: coral;
-            opacity:0.5;
-            height:60%;
-        }
-
-
-        </style>
-    </head>
-    <body> 
-        <div class="wrapper">
-            <div class="ticket-wrapper">
-                <div class="ticket-subwrapper1">
-                    <div class="ticket-graphic"><img src="./assets/img/graphic.png"></div>
-                    <div class="ticket-data">
-                        <div class="event-name fittext"><strong>Anubhav Singh Bassi</strong> and <br/><strong>Paradigm Shift</strong></div>
-                        <div class="event-details"></div>
+<body>
+    <div id="pageWrapper">
+        <div id="innerWrapper">
+            <div id="logo">
+                <div id="oasisLogo"></div>
+                <div id="sponsorLogo"></div>
+            </div>
+            <div id="mainTitle">
+                <div id="picture"></div>
+                <div class="heading">N<sub>2</sub>O : Biswa Kalyan Rath</div>
+                <div class="subHeading">Comedy Nite</div>
+            </div>
+            <div id="otherDetails">
+                <div id="date">
+                    <div class="topicHeading">Date</div>
+                    <div class="topicData">
+                        25 Oct 2019
                     </div>
                 </div>
-                <div class="ticket-subwrapper2"></div>
+                <div id="time">
+                    <div class="topicHeading">Time</div>
+                    <div class="topicData">
+                        8 PM
+                    </div>
+                </div>
+                <div id="venue">
+                    <div class="topicHeading">Venue</div>
+                    <div class="topicData">SR Grounds</div>
+                </div>
+            </div>
+            <div id="ticketDetails">
+                <img src="assets/images/qrCode.png" id="qrImage"
+                    alt="OOPS! your QR code should have been here. Contact DVM if its not showing..." />
+                <div class="flexRowCenter">
+                    <div id="qrNumber">
+                        <div class="topicHeading">QR Number</div>
+                        <div class="topicData">169</div>
+                    </div>
+                    <div id="ticketFor">
+                        <div class="topicHeading">Ticket For</div>
+                        <div class="topicData">3 people</div>
+                    </div>
+                </div>
+            </div>
+            <div id="otherStuff">
+                <div class="info">Please follow the Entry Plan.</div>
+                <div class="appDownloadButtons">
+                    <img src="./assets/images/googlePlay.jpg" alt="Google Play Icon">
+                </div>
             </div>
         </div>
+    </div>
+</body>
 
-    <script src="./assets/js/fittext.js"></script>
-	<script type="text/javascript">
-	  fitText(document.getElementsByClassName('fittext'), 1.3)
-	</script>
-    </body>
 </html>
